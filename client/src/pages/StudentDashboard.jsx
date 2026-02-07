@@ -68,6 +68,7 @@ const StudentDashboard = ({ user }) => {
                             <th>Mentor Approval</th>
                             <th>HOD Approval</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,6 +84,26 @@ const StudentDashboard = ({ user }) => {
                                     {req.hod_status} {req.hod_status === 'Approved' && '✅'}
                                 </td>
                                 <td>{req.status}</td>
+                                <td>
+                                    {req.status === 'Approved' && (
+                                        <button onClick={() => {
+                                            const letterWindow = window.open('', 'PRINT', 'height=600,width=800');
+                                            letterWindow.document.write(`<html><head><title>Permission Letter</title></head><body>`);
+                                            letterWindow.document.write(`<h1>Permission Letter</h1>`);
+                                            letterWindow.document.write(`<p>Date: ${new Date().toLocaleDateString()}</p>`);
+                                            letterWindow.document.write(`<p>To,</p><p>The HOD,</p><p>Department of ${user.department}</p>`);
+                                            letterWindow.document.write(`<p>Subject: Permission to attend ${req.event_name}</p>`);
+                                            letterWindow.document.write(`<p>Respected Sir/Madam,</p>`);
+                                            letterWindow.document.write(`<p>I, ${user.name}, from ${user.department} department, request permission to attend <b>${req.event_name}</b> at <b>${req.venue}</b> on <b>${new Date(req.event_date).toLocaleString()}</b>.</p>`);
+                                            letterWindow.document.write(`<p>This request has been approved by Class Mentor and HOD.</p>`);
+                                            letterWindow.document.write(`<br/><p>Sincerely,</p><p>${user.name}</p>`);
+                                            letterWindow.document.write(`</body></html>`);
+                                            letterWindow.document.close();
+                                            letterWindow.focus();
+                                            letterWindow.print();
+                                        }}>Download Letter</button>
+                                    )}
+                                </td>
                             </tr>
                         ))}
                     </tbody>
