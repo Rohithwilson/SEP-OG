@@ -11,7 +11,7 @@ const HODDashboard = ({ user }) => {
 
     const fetchRequests = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/requests?role=hod&user_id=${user.id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/requests?role=hod&user_id=${user.id}`);
             // Filter for only those needing HOD approval (Mentor Approved, HOD Pending)
             setRequests(res.data.requests.filter(r => r.mentor_status === 'Approved' && r.hod_status === 'Pending'));
         } catch (err) {
@@ -21,7 +21,7 @@ const HODDashboard = ({ user }) => {
 
     const handleAction = async (id, action) => {
         try {
-            await axios.put(`http://localhost:5000/api/requests/${id}/status`, {
+            await axios.put(`${import.meta.env.VITE_API_URL}/requests/${id}/status`, {
                 role: 'hod',
                 action,
                 user_id: user.id

@@ -11,7 +11,7 @@ const MentorDashboard = ({ user }) => {
 
     const fetchRequests = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/requests?role=mentor&user_id=${user.id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/requests?role=mentor&user_id=${user.id}`);
             // Client-side filtering if API returns overly broad results, though API logic should handle it
             // Assuming API returns all PENDING mentor approval requests
             setRequests(res.data.requests.filter(r => r.mentor_status === 'Pending'));
@@ -22,7 +22,7 @@ const MentorDashboard = ({ user }) => {
 
     const handleAction = async (id, action) => {
         try {
-            await axios.put(`http://localhost:5000/api/requests/${id}/status`, {
+            await axios.put(`${import.meta.env.VITE_API_URL}/requests/${id}/status`, {
                 role: 'mentor',
                 action,
                 user_id: user.id

@@ -14,7 +14,7 @@ const StudentDashboard = ({ user }) => {
 
     const fetchRequests = async () => {
         try {
-            const res = await axios.get(`http://localhost:5000/api/requests?role=student&user_id=${user.id}`);
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/requests?role=student&user_id=${user.id}`);
             setRequests(res.data.requests);
         } catch (err) {
             console.error(err);
@@ -24,7 +24,7 @@ const StudentDashboard = ({ user }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/requests/create', {
+            await axios.post(`${import.meta.env.VITE_API_URL}/requests/create`, {
                 student_id: user.id,
                 event_name: eventName,
                 venue,
