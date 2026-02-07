@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Mdashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <h2 class="header-title">Mentor Dashboard</h2>
+            <span class="header-name">Dr. Sharma</span>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">     
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+    </div>
+
+    <!-- Cards -->
+    <div class="card">
+        <p class="card-title">Pending Approvals</p>
+        <h1 class="card-value" id="pendingApprovals">0</h1>
+    </div>
+
+    <div class="card">
+        <p class="card-title">Total Requests</p>
+        <h1 class="card-value" id="totalRequests">0</h1>
+    </div>
+
+    <div class="card">
+        <p class="card-title">Department</p>
+        <h2 class="card-text">CSE Department</h2>
+    </div>
+
+    <!-- Pending Requests -->
+    <h2 class="section-title">Pending Requests</h2>
+
+    <div class="empty-box">
+        <i class="fa-regular fa-clock"></i>
+        <p>No pending requests at this time</p>
+    </div>
+
+    <!-- JS -->
+    <script src="Mdashboard.js"></script>
+</body>
+</html>

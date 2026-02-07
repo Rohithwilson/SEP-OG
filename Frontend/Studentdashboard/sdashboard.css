@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background */
+body {
+    background: linear-gradient(180deg, #111827, #0b1220);
+    color: white;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    height: 60px;
+    background: #1f2933;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #2f3b52;
+}
+
+.nav-left {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #cbd5e1;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Main Content */
+.content {
+    padding: 40px;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #9ca3af;
+    font-size: 16px;
+}
+
+/* New Request Button */
+.new-btn {
+    background: #3b82f6;
+    border: none;
+    padding: 10px 22px;
+    color: white;
+    font-size: 15px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.new-btn:hover {
+    background: #2563eb;
+}
+
+/* Empty Card */
+.empty-card {
+    background: #1f2933;
+    border-radius: 18px;
+    padding: 45px;
+    text-align: center;
+    border: 1px solid #2f3b52;
+}
+
+.empty-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #e5e7eb;
+}
+
+.empty-card p {
+    color: #9ca3af;
+    font-size: 14px;
+}

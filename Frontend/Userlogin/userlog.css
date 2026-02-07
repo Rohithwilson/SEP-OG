@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0c0f1d, #1b2338);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    color: #ffffff;
+}
+
+.login-card h2 {
+    color: #4da3ff;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #b8b8b8;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    color: #ccc;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #1f2a3a;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #7e8ba3;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #4da3ff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #6bb4ff;
+}
+
+.demo-box {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    text-align: left;
+    color: #cfcfcf;
+}
+
+.demo-box h4 {
+    margin-bottom: 8px;
+    color: #ffffff;
+}
