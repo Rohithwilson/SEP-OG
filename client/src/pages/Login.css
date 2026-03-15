@@ -1,104 +1,134 @@
-/* Login Page Redesign */
+/* Premium Login Layout */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: transparent;
-    padding: 20px;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background blob effects */
+.login-container::before,
+.login-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.login-container::before {
+  top: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(99, 102, 241, 0.4);
+}
+
+.login-container::after {
+  bottom: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(168, 85, 247, 0.3);
 }
 
 .login-box {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    padding: 3rem;
-    border-radius: var(--card-radius);
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 440px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s ease-out;
 }
 
-.login-box:hover {
-    transform: translateY(-5px);
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.login-box h2 {
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-    font-weight: 600;
-    letter-spacing: 1px;
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-.login-box form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.login-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, var(--text-color), var(--primary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.login-box input,
-.login-box select {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
+.login-header p {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 0.95rem;
 }
 
-.login-box input:focus,
-.login-box select:focus {
-    border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 15px rgba(0, 242, 96, 0.2);
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-.login-box input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.login-box option {
-    background-color: #302b63;
-    /* Dark background for dropdown options */
-    color: white;
+.input-wrapper {
+  position: relative;
 }
 
-.login-box button {
-    width: 100%;
-    padding: 1rem;
-    background: var(--accent-gradient);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 1rem;
+.form-group input,
+.form-group select {
+  height: 3rem;
+  padding: 0 1rem;
+  font-size: 0.95rem;
 }
 
-.login-box button:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(5, 117, 230, 0.6);
+.btn-block {
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
-.login-box p {
-    margin-top: 1.5rem;
-    color: var(--text-secondary);
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: color 0.3s;
+.toggle-form {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 
-.login-box p:hover {
-    color: var(--accent-color);
-    text-decoration: none;
+.toggle-form span {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.toggle-form span:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  border-left: 4px solid var(--danger);
 }
